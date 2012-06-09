@@ -9,7 +9,7 @@
     :license: BSD, see LICENSE for details
 """
 
-from itertools import izip
+
 
 from docutils.nodes import literal, Text
 
@@ -49,7 +49,7 @@ class HTTPDomain(Domain):
     def clear_doc(self, docname):
         """Remove traces of a document from self.data."""
         for typ in self.initial_data:
-            for name, entry in self.data[typ].items():
+            for name, entry in list(self.data[typ].items()):
                 if entry[0] == docname:
                     del self.data[typ][name]
 
@@ -109,7 +109,7 @@ class HTTPDomain(Domain):
         """
         # Method descriptions
         for typ in self.initial_data:
-            for name, entry in self.data[typ].iteritems():
+            for name, entry in self.data[typ].items():
                 docname = entry[0]
                 yield(name, name, typ, docname, typ + '-' + name, 0)
 

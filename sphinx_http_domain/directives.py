@@ -7,7 +7,7 @@
 """
 
 import re
-from urlparse import urlsplit
+from urllib.parse import urlsplit
 
 from docutils.nodes import literal, strong, Text
 from docutils.parsers.rst import directives
@@ -24,7 +24,7 @@ from sphinx_http_domain.nodes import (desc_http_method, desc_http_url,
 from sphinx_http_domain.utils import slugify, slugify_url
 
 try:
-    from urlparse import parse_qsl
+    from urllib.parse import parse_qsl
 except ImportError:
     from cgi import parse_qsl
 

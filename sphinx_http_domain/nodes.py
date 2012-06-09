@@ -126,7 +126,7 @@ class desc_http_patharg(HttpNode):
 
     This node is created when {argument} is found inside the path.
     """
-    wrapper = (u'{', u'}')
+    wrapper = ('{', '}')
 
     def astext(self, node):
         return (self.wrapper[0] +
@@ -178,7 +178,7 @@ class desc_http_patharg(HttpNode):
 
 class desc_http_query(HttpNode):
     """HTTP query string node. Contained in the URL node."""
-    prefix = u'?'
+    prefix = '?'
 
     def astext(self):
         return self.prefix + nodes.TextElement.astext(self)
@@ -217,7 +217,7 @@ class desc_http_queryparam(HttpNode):
 
     This node is created for each parameter inside a query string.
     """
-    child_text_separator = u'&'
+    child_text_separator = '&'
     first = False
 
     @staticmethod
@@ -261,7 +261,7 @@ class desc_http_queryparam(HttpNode):
 
 class desc_http_fragment(HttpNode):
     """HTTP fragment node. Contained in the URL node."""
-    prefix = u'#'
+    prefix = '#'
 
     def astext(self):
         return self.prefix + nodes.TextElement.astext(self)
